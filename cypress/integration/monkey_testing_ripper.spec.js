@@ -20,8 +20,6 @@ function randomEvent(monkeysLeft) {
         return Math.floor(Math.random() * (max - min)) + min;
     };
     var randomeEventId = getRandomInt(1, 5);
-    console.log("EVENT");
-    console.log(randomeEventId);
     var monkeysLeft = monkeysLeft;
     if (monkeysLeft > 0) {
         switch (randomeEventId) {
@@ -29,7 +27,6 @@ function randomEvent(monkeysLeft) {
                 cy.get('a').then($links => {
                     var randomLink = $links.get(getRandomInt(0, $links.length));
                     if (!Cypress.dom.isHidden(randomLink)) {
-                        console.log("MONKEYYY 1");
                         cy.wrap(randomLink).click({ force: true });
                         monkeysLeft = monkeysLeft - 1;
                     }
